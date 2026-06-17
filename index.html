@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KRISH YADAV | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER & NAV -->
+  <header>
+    <nav>
+      <div class="logo">KRISH YADAV</div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- DARK MODE TOGGLE BUTTON -->
+        <!-- js-theme-toggle = JS hook class (never used for styling) -->
+        <button class="js-theme-toggle theme-btn" aria-label="Toggle dark mode">🌙</button>
+
+        <!-- HAMBURGER BUTTON (mobile only) -->
+        <button class="js-hamburger hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <!-- is-open class is added/removed by JS -->
+    <div class="js-mobile-menu mobile-menu">
+      <ul>
+        <li><a href="#about" class="js-nav-link">About</a></li>
+        <li><a href="#skills" class="js-nav-link">Skills</a></li>
+        <li><a href="#projects" class="js-nav-link">Projects</a></li>
+        <li><a href="#contact" class="js-nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <h1>Hi, I'm <span>KRISH YADAV</span></h1>
+      <p>Frontend Developer | DecodeLabs Batch 2026</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm a frontend developer currently training at DecodeLabs.
+        I love building clean and readable websites using HTML, CSS, and JavaScript.
+        I focus on writing proper semantic code that works for everyone.
+      </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="card">HTML5</div>
+        <div class="card">CSS3</div>
+        <div class="card">Flexbox</div>
+        <div class="card">CSS Grid</div>
+        <div class="card">JavaScript</div>
+        <div class="card">DOM Manipulation</div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <!-- FILTER BUTTONS — JS toggles is-active on these -->
+      <div class="filter-bar">
+        <button class="filter-btn is-active js-filter" data-filter="all">All</button>
+        <button class="filter-btn js-filter" data-filter="html">HTML/CSS</button>
+        <button class="filter-btn js-filter" data-filter="js">JavaScript</button>
+      </div>
+
+      <div class="projects-grid js-projects-grid">
+
+        <!-- data-category is read by JS to filter cards -->
+        <article class="project-card" data-category="html">
+          <h3>Static Portfolio</h3>
+          <p>A clean portfolio built with pure HTML and CSS using semantic tags.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="html">
+          <h3>Responsive Layout</h3>
+          <p>A mobile-first layout using CSS Grid, Flexbox and media queries.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS Grid</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="js">
+          <h3>Interactive Elements</h3>
+          <p>Dark mode toggle, form validation, and dynamic filtering using JavaScript.</p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">DOM</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONTACT FORM WITH JS VALIDATION -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Fill in the form below and I'll get back to you.</p>
+
+      <div class="form-wrapper">
+        <!-- 
+          js-contact-form = JS hook for the form
+          We listen for 'submit' event on this element
+        -->
+        <div class="js-contact-form contact-form">
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="js-input" placeholder="Your name" maxlength="50">
+            <!-- js-error = where JS writes error messages -->
+            <span class="js-error error-msg" id="name-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="js-input" placeholder="krishyadav1423@gmail.com">
+            <span class="js-error error-msg" id="email-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" class="js-input" placeholder="Your message..." maxlength="300" rows="4"></textarea>
+            <!-- Character counter — updated live by JS -->
+            <span class="char-count js-char-count">0 / 300</span>
+            <span class="js-error error-msg" id="message-error"></span>
+          </div>
+
+          <button class="btn js-submit-btn">Send Message</button>
+
+          <!-- Success message — shown by JS after valid submit -->
+          <div class="success-msg js-success" id="form-success"></div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <address>
+      <a href="mailto:krishyadav1423@gmail.com">krishyadav1423@gmail.com</a>
+    </address>
+    <nav aria-label="Social links">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+    </nav>
+    <small>© 2026 KRISH YADAV</small>
+  </footer>
+
+  <!-- 
+    script.js is linked at the BOTTOM of body.
+    This ensures all HTML elements exist in the DOM
+    before JavaScript tries to find them.
+  -->
+  <script src="script.js"></script>
+
+</body>
+</html>
